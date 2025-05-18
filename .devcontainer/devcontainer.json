@@ -1,0 +1,21 @@
+{
+  "name": "musl-dev",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "fish"
+  },
+  "postCreateCommand": "cd musl && ./configure --prefix=/workspaces/musl-dev/musl-install && make -j$(nproc)",
+  "remoteUser": "root",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "timonwong.shellcheck",
+        "EditorConfig.EditorConfig"
+      ]
+    }
+  }
+}
+

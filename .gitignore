@@ -1,0 +1,37 @@
+# VS Code settings
+.vscode/
+
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# macOS folder attributes
+Icon?
+._*
+
+# C/C++ build files
+*.o
+*.obj
+*.so
+*.a
+*.out
+*.exe
+*.dSYM/
+*.gcda
+*.gcno
+*.gcov
+
+# Build directories
+/build/
+/bin/
+/lib/
+
+# Makefile auto-generated files
+*.dep
+*.d
+
+# Editor swap/backup files
+*~
+*.swp
+*.swo

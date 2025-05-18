@@ -1,0 +1,7 @@
+Makefile
+*.md
+*.sh
+.vscode/
+.git/
+*.log
+
