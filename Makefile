@@ -5,7 +5,7 @@ PROJECT_DIR = $(shell pwd)
 
 .PHONY: all build run clean
 
-all: build run clean
+all: build run clean submodule
 
 build:
 	@echo "🔨 Building Docker image..."
@@ -14,6 +14,9 @@ build:
 run:
 	@echo "🚀 Running container..."
 	docker run -it --rm -v "$(PROJECT_DIR)":/workspaces/musl-dev $(IMAGE_NAME)
+
+submodule:
+	git submodule update --init --recursive
 
 clean:
 	@echo "🧹 Removing Docker image..."
