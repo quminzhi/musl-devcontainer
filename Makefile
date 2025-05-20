@@ -1,6 +1,6 @@
 IMAGE_NAME = musl-dev-test
 DOCKERFILE = .devcontainer/Dockerfile
-CONTEXT = .devcontainer # VSCode taks .devcontainer as the context
+CONTEXT = .
 PROJECT_DIR = $(shell pwd)
 
 .PHONY: all build run clean

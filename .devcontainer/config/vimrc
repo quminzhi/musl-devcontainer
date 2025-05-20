@@ -160,3 +160,29 @@ function! ToggleList()
   endif
 endfunction
 
+" Ctags
+set tags=./tags;,tags;  " recursive search
+
+" Enable cscope
+set cscopeverbose  " Show what's happening
+
+if filereadable("cscope.out")
+    silent! cs add cscope.out
+endif
+
+nnoremap ]s :cs find s <C-R>=expand("<cword>")<CR><CR>  " Symbol
+nnoremap ]d :vert scs find g <C-R>=expand("<cword>")<CR><CR>  " Definition
+nnoremap ]g :cs find g <C-R>=expand("<cword>")<CR><CR>  " Definition
+nnoremap ]s :cs find c <C-R>=expand("<cword>")<CR><CR>  " Called by
+"nnoremap <leader>ct :cs find t <C-R>=expand("<cword>")<CR><CR>  " Text
+"nnoremap <leader>ce :cs find e <C-R>=expand("<cword>")<CR><CR>  " Egrep
+nnoremap ]f :cs find f <C-R>=expand("<cfile>")<CR><CR>  " File
+nnoremap ]i :cs find i <C-R>=expand("<cfile>")<CR><CR>  " Includes
+nnoremap ]a :cs find d <C-R>=expand("<cword>")<CR><CR>  " Assignments
+
+" Clang-format
+" Format selected region with clang-format
+vnoremap [v :!clang-format<CR>
+
+" Format the current buffer
+nnoremap [f :%!clang-format<CR>

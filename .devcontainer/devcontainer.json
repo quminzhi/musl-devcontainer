@@ -1,13 +1,18 @@
 {
   "name": "musl-dev",
   "build": {
-    "dockerfile": "Dockerfile"
+    "dockerfile": "Dockerfile",
+    "context": ".."
   },
+  "remoteUser": "root",
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
+  ],
   "settings": {
     "terminal.integrated.defaultProfile.linux": "fish"
   },
-  "postCreateCommand": "cd musl && ./configure --prefix=/workspaces/musl-dev/musl-install && make -j$(nproc)",
-  "remoteUser": "root",
+  "postCreateCommand": "cd musl && ./configure --prefix=/workspace/musl-dev/musl-install && make -j$(nproc)",
   "customizations": {
     "vscode": {
       "extensions": [

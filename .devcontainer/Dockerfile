@@ -11,6 +11,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     vim \
     git \
     curl \
+    clang-format \
+    exuberant-ctags cscope \
     ca-certificates \
     man \
     less \
@@ -30,11 +32,12 @@ ENV LC_ALL=en_US.UTF-8
 RUN echo /usr/bin/fish >> /etc/shells && chsh -s /usr/bin/fish root
 
 # Copy your local config files
-COPY config/vimrc /root/.vimrc
-COPY config/tmux.conf /root/.tmux.conf
+COPY .devcontainer/config/vimrc /root/.vimrc
+COPY .devcontainer/config/tmux.conf /root/.tmux.conf
+COPY .devcontainer/config/clang-format /workspace/.clang-format
 
 # Set working directory (your mounted code will go here)
-WORKDIR /workspaces/musl-dev
+WORKDIR /workspace
 
 # Start in tmux
 CMD ["tmux"]
