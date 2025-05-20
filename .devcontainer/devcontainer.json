@@ -12,7 +12,7 @@
   "settings": {
     "terminal.integrated.defaultProfile.linux": "fish"
   },
-  "postCreateCommand": "cd musl && ./configure --prefix=/workspace/musl-dev/musl-install && make -j$(nproc)",
+  "postCreateCommand": "cd musl && ./configure --prefix=/workspace/musl-dev/musl-install && bear -- make -j$(nproc)",
   "customizations": {
     "vscode": {
       "extensions": [
